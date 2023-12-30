@@ -4,11 +4,10 @@ import { createConnection } from 'mysql';
 
 function createConnection(){
     const connection = msql.createConnection({
-        host:'localhost',
-        user:'un',
-        password:'pw',
-        database:'BLOG',
-
+        host:process.env.DB_HOST,
+        user:process.env.DB_USER,
+        password:process.env.DB_PASSWORD,
+        database:process.env.DB,
     })
 }
 

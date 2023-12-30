@@ -2,7 +2,7 @@ import getArticles from '../Models/articleMod'
 
 async function fetchArticles(req,res){
     try{
-        const articles = getArticles();
+        const articles = await getArticles();
         res.json(articles);
     }
     catch(error){

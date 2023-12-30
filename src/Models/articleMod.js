@@ -4,13 +4,14 @@ function getArticles(callback){
     const conn = db.createConnection();
     const sql = 'SELECT * FROM BLOG';
     conn.query(sql,(err,results)=>{
-        Connection.end();
+        conn.end();
+
+        if(err){
+            return callback(err,null);
+        }
+        
+        return callback(null,results);
     })
-    
-    if(err){
-        return callback(err,null);
-    }
-    return callback(null,results);
 }
 
 
