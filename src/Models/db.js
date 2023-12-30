@@ -6,7 +6,6 @@ const connection = mysql.createConnection({
     password:process.env.DB_PASSWORD,
     database:process.env.DB
 })
-console.log("Test" + process.env.DB_HOST)
 connection.connect()
 
 connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
