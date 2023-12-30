@@ -9,6 +9,6 @@ app.listen(port,()=>{
 })
 app.get('/',async (req,res)=>{
 const stuff = await getStuff()
-res(stuff)
+console.log(stuff)
 })
 
