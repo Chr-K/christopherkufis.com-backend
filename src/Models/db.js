@@ -1,5 +1,5 @@
-require('dotenv').config({path:'../.env'})
-const mysql = require('mysql')
+import {mysql} from 'mysql2'
+
 const connection = mysql.createConnection({
     host:process.env.DB_HOST,
     user:process.env.DB_USER,
