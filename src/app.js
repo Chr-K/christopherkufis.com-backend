@@ -5,6 +5,9 @@ const app = express()
 const port = process.env.PORT
 
 app.listen(port,()=>{
-    console.log(getStuff())
+    console.log(port)
+})
+app.get('/',(req,res)=>{
+    res.send(getStuff.json())
 })
 
