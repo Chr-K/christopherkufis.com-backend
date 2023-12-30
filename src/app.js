@@ -3,8 +3,9 @@ require('dotenv').config({path:'../.env'})
 const getStuff = require('./Models/db')
 const app = express()
 
-app.listen('localhost')
-app.get('/hakuna', (req,res)=>{
-console.log("Hello")
+app.listen('api.christopherkufis.com')
+
+app.get('/', (req,res)=>{
+    res.send('hi')
 })
 
