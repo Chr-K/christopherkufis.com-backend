@@ -1,12 +1,13 @@
 const db = require('./db')
 
-async function getArticles(callback){
+async function getArticles(){
     const conn = db.createConnection();
     try{
-        const results =  conn.query('SELECT * FROM BLOG')
+        const results = await conn.promise().query('SELECT * FROM BLOG')
         return results
     }
     catch(err){
+        console.error('Error executing SQL query: ', err)
         throw err;
     }
     finally{
