@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
     database:process.env.DB
 })
 
-function getStuff(){
+async function getStuff(){
     connection.connect()
 
     connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
@@ -16,6 +16,7 @@ function getStuff(){
     
         return rows[0]
     })
+
     connection.end();
 }
 
