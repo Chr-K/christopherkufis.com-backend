@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-import { createConnection } from 'mysql';
+const createConnection = require('mysql2')
 
 function createConnection(){
     const connection = msql.createConnection({
