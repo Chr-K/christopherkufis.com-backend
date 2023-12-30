@@ -1,11 +1,10 @@
 const express = require('express')
-require('dotenv').config({path:'../.env'})
 const getStuff = require('./Models/db')
 const app = express()
 
 app.listen(3000)
 
-app.get('/', (req,res)=>{
-    res.send('hi')
+app.get('/',async (req,res)=>{
+    res.send(await getStuff())
 })
 
