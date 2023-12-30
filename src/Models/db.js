@@ -1,6 +1,7 @@
-const mysql = require('mysql2')
+import { createConnection } from 'mysql2'
 require('dotenv').config({path:'../.env'})
-const connection = mysql.createConnection({
+const connection = createConnection({
+    host:process.env.DB_HOST,
     user:process.env.DB_USER,
     password:process.env.DB_PASSWORD,
     database:process.env.DB
@@ -15,4 +16,4 @@ connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
     return rows;
 })
 connection.end();
-module.exports = connection;
+export default connection;
