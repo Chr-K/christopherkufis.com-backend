@@ -1,4 +1,4 @@
-import getArticles from '../Models/articleMod';
+const getArticles = require('../Models/articleMod')
 
 async function fetchArticles(req,res){
     try{
@@ -11,4 +11,4 @@ async function fetchArticles(req,res){
     }
 }
 
-export default fetchArticles
+module.exports = fetchArticles
