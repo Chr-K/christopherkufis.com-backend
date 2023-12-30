@@ -4,7 +4,6 @@ const getStuff = require('./Models/db')
 const app = express()
 
 app.get('/hakuna', (req,res)=>{
-    res.send(<p>Hakuna</p>)
-    console.log("Hakuna matata")
+console.log("Hello")
 })
 
