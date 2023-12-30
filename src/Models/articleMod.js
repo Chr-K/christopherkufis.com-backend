@@ -1,17 +1,17 @@
 const db = require('./db')
 
-function getArticles(callback){
+async function getArticles(callback){
     const conn = db.createConnection();
-    const sql = 'SELECT * FROM BLOG';
-    conn.query(sql,(err,results)=>{
+    try{
+        const results = await conn.query('SELECT * FROM BLOG')
+        return results
+    }
+    catch(err){
+        throw err;
+    }
+    finally{
         conn.end();
-
-        if(err){
-            return callback(err,null);
-        }
-
-        return callback(null,results);
-    })
+    }
 }
 
 
