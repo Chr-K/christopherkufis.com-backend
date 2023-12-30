@@ -11,6 +11,8 @@ async function createConnection(){
             password:process.env.DB_PASSWORD,
             database:process.env.DB,
         })
+
+        connection.promise = () => connection;
         return connection;
 
     }
