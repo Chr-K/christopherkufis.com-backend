@@ -9,8 +9,19 @@ const app = express()
 app.use(express.json())
 
 app.get('/articles',async (req,res)=>{
-await fetchArticles();
-res.send('articles_fetched');
+
+    try{
+        const articles = await fetchArticles();
+        res.json({articles})
+    }
+    catch(error){
+        console.error(error)
+        res.status(500).json({error: "internal service error"})
+    }
+
+
 })
 
-app.listen(port)
+app.listen(port, ()=>{
+    console.log(`Server is listening on port ${port}`)
+})
