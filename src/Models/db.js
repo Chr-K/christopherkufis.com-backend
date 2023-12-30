@@ -10,7 +10,7 @@ connection.connect()
 
 connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
     if(err) 
-    {throw err}
+    {console.log(err)}
 
     return rows;
 })
