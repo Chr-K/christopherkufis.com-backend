@@ -1,5 +1,4 @@
-const express = require('express')
-require('dotenv').config({path:'../.env'})
+import 'express'
 import './Models/db.js'
 
 const app = express()
