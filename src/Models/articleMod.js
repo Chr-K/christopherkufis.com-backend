@@ -3,7 +3,7 @@ const db = require('./db')
 async function getArticles(){
     const conn = db.createConnection();
     try{
-        const results = await conn.query('SELECT * FROM BLOG')
+        const results = (await conn).query('SELECT * FROM BLOG')
         conn.end();
         return results
     }
