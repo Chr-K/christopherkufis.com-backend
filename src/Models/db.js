@@ -14,4 +14,5 @@ connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
 
     return rows;
 })
+connection.end();
 module.exports = connection;
