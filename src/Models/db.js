@@ -14,7 +14,7 @@ function getStuff(){
         if(err) 
         {console.log(err)}
     
-        return rows;
+        return rows[0]
     })
     connection.end();
 }
