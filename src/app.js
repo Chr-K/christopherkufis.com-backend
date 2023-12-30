@@ -16,7 +16,7 @@ app.get('/articles',async (req,res)=>{
     }
     catch(error){
         console.error(error)
-        res.status(500).json({error: "internal boop error"})
+        res.status(500).json({error: "internal service error"})
     }
 
 
