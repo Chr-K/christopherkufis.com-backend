@@ -6,13 +6,17 @@ const connection = mysql.createConnection({
     password:process.env.DB_PASSWORD,
     database:process.env.DB
 })
-connection.connect()
 
-connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
-    if(err) 
-    {console.log(err)}
+function getStuff(){
+    connection.connect()
 
-    return rows;
-})
-connection.end();
-module.exports = connection;
+    connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
+        if(err) 
+        {console.log(err)}
+    
+        return rows;
+    })
+    connection.end();
+}
+
+module.exports = getStuff;
