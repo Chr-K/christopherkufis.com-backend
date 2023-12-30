@@ -7,5 +7,6 @@ app.listen('api.christopherkufis.com')
 
 app.get('/', (req,res)=>{
     res.send('hi')
+    
 })
 
