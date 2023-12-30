@@ -9,7 +9,8 @@ const connection = mysql.createConnection({
 connection.connect()
 
 connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
-    if(err) throw err
+    if(err) 
+    {throw err}
 
     return rows;
 })
