@@ -3,10 +3,9 @@ require('dotenv').config({path:'../.env'})
 const getStuff = require('./Models/db')
 const app = express()
 
-app.listen('api.christopherkufis.com')
+app.listen(3000)
 
 app.get('/', (req,res)=>{
     res.send('hi')
-    
 })
 
