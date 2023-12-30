@@ -10,6 +10,18 @@ function createConnection(){
         password:process.env.DB_PASSWORD,
         database:process.env.DB,
     })
+    connection.promise = () => {
+        return new Promise((resolve,reject) => {
+            connection.connect((err)=>{
+                if(err){
+                    reject(err);
+                }
+                else{
+                    resolve(connection)
+                }
+            })
+        })
+    }
     return connection;
 }
 
