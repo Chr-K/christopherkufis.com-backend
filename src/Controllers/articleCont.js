@@ -7,7 +7,7 @@ async function fetchArticles(req,res){
     }
     catch(error){
         console.error("Error getting articles: ",error);
-        res.status(500).json({error: "Internal server error"})
+        res.status(500).json({error: "Internal beep error"})
     }
 }
 
