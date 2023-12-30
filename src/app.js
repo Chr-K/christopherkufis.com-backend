@@ -10,5 +10,6 @@ app.listen(port,()=>{
 
 app.get('/', (req,res)=>{
     res.send("Hakuna matata")
+    console.log("Hakuna matata")
 })
 
