@@ -1,3 +1,5 @@
+import pkg from 'mysql2'
+const {mysql} = pkg
 
 const connection = mysql.createConnection({
     host:process.env.DB_HOST,
