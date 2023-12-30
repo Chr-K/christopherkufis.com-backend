@@ -1,11 +1,10 @@
-import 'express'
-import './Models/db.js'
-
+const express = require('express')
+require('dotenv').config({path:'../.env'})
 const app = express()
 const port = process.env.PORT
 
 app.get('/',(req,res)=>{
-    res.send(connection)
+    res.send("hello World")
 })
 
 app.listen(port,()=>{
