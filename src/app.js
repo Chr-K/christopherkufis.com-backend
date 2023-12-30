@@ -1,7 +1,7 @@
 const dotenv = require('dotenv')
 const express = require('express')
 const fetchArticles = require('./Controllers/articleCont')
-dotenv.config();
+dotenv.config('../');
 
 const port = process.env.PORT
 const app = express()
