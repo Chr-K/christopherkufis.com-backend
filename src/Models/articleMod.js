@@ -9,12 +9,10 @@ function getArticles(callback){
         if(err){
             return callback(err,null);
         }
-        
+
         return callback(null,results);
     })
 }
 
 
-module.exports ={
-getArticles,
-}
+export default getArticles

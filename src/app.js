@@ -6,8 +6,8 @@ const app = express()
 
 app.use(express.json())
 
-app.get('/articles',(req,res)=>{
-fetchArticles();
+app.get('/articles',async (req,res)=>{
+await fetchArticles();
 res.send();
 })
 
