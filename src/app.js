@@ -1,10 +1,11 @@
 const express = require('express')
 require('dotenv').config({path:'../.env'})
+import connection from './Models/db'
 const app = express()
 const port = process.env.PORT
 
 app.get('/',(req,res)=>{
-    res.send("hello World")
+    res.send(connection)
 })
 
 app.listen(port,()=>{
