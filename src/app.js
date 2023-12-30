@@ -7,8 +7,7 @@ const port = process.env.PORT
 app.listen(port,()=>{
     console.log(port)
 })
-app.get('/',async (req,res)=>{
-const stuff = await getStuff()
-console.log(stuff)
+app.get('/', (req,res)=>{
+    res.send("Hakuna matata")
 })
 
