@@ -8,7 +8,7 @@ const app = express()
 
 app.use(express.json())
 
-app.get('/articles',async (req,res)=>{
+app.get('api.christopherkufis.com/articles',async (req,res)=>{
 await fetchArticles();
 res.send();
 })
