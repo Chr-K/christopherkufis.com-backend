@@ -8,9 +8,9 @@ const app = express()
 
 app.use(express.json())
 
-app.get('api.christopherkufis.com/articles',async (req,res)=>{
+app.get('articles',async (req,res)=>{
 await fetchArticles();
-res.send();
+res.send('articles_fetched');
 })
 
 app.listen(port)
