@@ -1,6 +1,7 @@
 const express = require('express')
 require('dotenv').config({path:'../.env'})
-import {connection} from './Models/db'
+import './Models/db.js'
+
 const app = express()
 const port = process.env.PORT
 
