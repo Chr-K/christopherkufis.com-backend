@@ -1,5 +1,4 @@
-import db from './db';
-
+const db = require('./db')
 function getArticles(callback){
     const conn = db.createConnection();
     const sql = 'SELECT * FROM BLOG';

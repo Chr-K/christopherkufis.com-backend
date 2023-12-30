@@ -1,6 +1,6 @@
-import express from 'express'
-import fetchArticles from './Controllers/articleCont'
-import dotenv from 'dotenv'
+const express = require('express')
+const fetchArticles = require('./Controllers/articleCont')
+const dotenv = require('dotenv')
 dotenv.config();
 
 const port = process.env.PORT
