@@ -6,6 +6,7 @@ const app = express()
 app.listen('localhost')
 
 
+
 app.get('/hakuna', (req,res)=>{
 console.log("Hello")
 })
