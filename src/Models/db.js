@@ -12,7 +12,18 @@ async function createConnection(){
             database:process.env.DB,
         })
 
-        connection.promise = () => connection;
+        connection.promise = () => {
+            return new Promise((resolve,reject)=>{
+                connection.connect((err)=>{
+                    if(err){
+                        reject(err)
+                    }
+                    else{
+                        resolve(connection)
+                    }
+                })
+            })
+        };
         return connection;
 
     }
