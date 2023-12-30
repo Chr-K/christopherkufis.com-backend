@@ -1,6 +1,3 @@
-const dotenv = require('dotenv');
-dotenv.config({path:'../.env'})
-
 const mysql = require('mysql2/promise')
 
 async function createConnection(){
