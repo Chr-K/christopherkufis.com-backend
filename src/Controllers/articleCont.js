@@ -1,8 +1,8 @@
-const getArticles = require('../Models/articleMod')
+import getArticles from '../Models/articleMod';
 
 async function fetchArticles(req,res){
     try{
-        const articles = await getArticles();
+        const articles = getArticles();
         res.json(articles);
     }
     catch(error){
@@ -11,4 +11,4 @@ async function fetchArticles(req,res){
     }
 }
 
-module.exports = fetchArticles
+export default fetchArticles
