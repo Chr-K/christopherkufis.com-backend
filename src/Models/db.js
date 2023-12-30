@@ -1,25 +1,11 @@
-const mysql = require('mysql2/promise')
+const express = require('express')
+const app = express()
+const port = process.env.PORT
 
- function createConnection(){
-    try{
-        const connection = mysql.createConnection({
-            host:process.env.DB_HOST,
-            user:process.env.DB_USER,
-            password:process.env.DB_PASSWORD,
-            database:process.env.DB,
-        })
+app.get('/',(req,res)=>{
+    res.send("hello World")
+})
 
-        return connection;
-
-    }
-
-    catch(error){
-        console.error('Error creating MySql connection: ', error);
-        throw error;
-    }
-
-}
-
-module.exports = {
-    createConnection,
-};
+app.listen(port,()=>{
+    console.log(`example app listening on port ${port}`)
+})
