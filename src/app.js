@@ -3,7 +3,7 @@ require('dotenv').config({path:'../.env'})
 const getStuff = require('./Models/db')
 const app = express()
 
-app.listen(443,()=>{
+app.listen(3030,()=>{
     console.log("listening")
 })
 
