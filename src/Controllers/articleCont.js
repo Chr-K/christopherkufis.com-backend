@@ -11,4 +11,4 @@ async function fetchArticles(req,res){
     }
 }
 
-export default fetchArticles
+module.exports = fetchArticles

@@ -14,4 +14,4 @@ function getArticles(callback){
 }
 
 
-export default getArticles
+module.exports = getArticles
