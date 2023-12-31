@@ -22,4 +22,4 @@ async function getStuff(callback){
 
 }
 
-module.exports = things;
+module.exports = getStuff;

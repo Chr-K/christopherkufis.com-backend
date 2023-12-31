@@ -8,6 +8,6 @@ app.use(getStuff)
 app.listen(3000)
 
 app.get('/articles', async (req,res)=>{
-const stuff = things.getStuff()
+const stuff = await getStuff()
 res.send(stuff)
 })
