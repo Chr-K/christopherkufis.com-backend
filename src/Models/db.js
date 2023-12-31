@@ -6,7 +6,7 @@ const connection = mysql.createPool({
     password:process.env.DB_PASSWORD,
     database:process.env.DB,
     port:process.env.PORT,
-    connectionLimit:10
+    connectionLimit:25
 })
 async function getStuff(){
 return new Promise((resolve,reject)=>{
