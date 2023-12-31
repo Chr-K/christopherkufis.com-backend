@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
     database:process.env.DB,
     port:process.env.PORT
 })
-
+console.log("Host: " + process.env.DB_HOST + "User: " + process.env.DB_USER + "password: " + process.env.DB_PASSWORD + "DB: " + process.env.DB)
 async function getStuff(callback){
     connection.connect()
 
