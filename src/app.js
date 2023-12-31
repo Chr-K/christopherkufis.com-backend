@@ -5,8 +5,8 @@ const app = express()
 app.listen(3000)
 
 
-    const rows = await getStuff();
-    console.log(JSON.stringify(getStuff))
+    const rows =  getStuff();
+    console.log(JSON.stringify(rows))
 
 app.get('/articles', async (req,res)=>{
 
