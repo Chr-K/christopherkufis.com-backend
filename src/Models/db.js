@@ -8,16 +8,20 @@ const connection = mysql.createConnection({
     port:process.env.PORT
 })
 async function getStuff(){
-    connection.connect()
-
+return new Promise((resolve,reject)=>{
+    connection.connect();
     connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
-        if(err) 
-        {console.error(err.stack)}
-        else{
-            return(rows[0])
+        if(err){
+            console.error(err.stack)
+            reject(err)
         }
+        else{
+            resolve(rows[0])
+        }
+        connection.close()
     })
-    connection.end();
+
+})
 }
 
 module.exports = getStuff;
