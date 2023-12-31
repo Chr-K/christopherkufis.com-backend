@@ -13,7 +13,7 @@ async function getStuff(){
 
     connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
         if(err) 
-        {console.log(err)}
+        {console.error(err.stack)}
         connection.end();
         return(rows)
     })
