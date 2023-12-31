@@ -6,5 +6,5 @@ app.listen(3000)
 
 app.get('/articles',(req,res)=>{
     const stuff = getStuff();
-    res.send(stuff)
+    res.send('stuff')
 })
