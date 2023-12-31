@@ -16,7 +16,7 @@ return new Promise((resolve,reject)=>{
             reject(err)
         }
         else{
-            resolve(rows.title)
+            resolve(rows)
         }
         connection.close()
     })
