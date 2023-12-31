@@ -1,25 +1,35 @@
 const mysql = require('mysql2')
 require('dotenv').config({path:'../.env'})
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
     host:process.env.DB_HOST,
     user:process.env.DB_USER,
     password:process.env.DB_PASSWORD,
     database:process.env.DB,
-    port:process.env.PORT
+    port:process.env.PORT,
+    connectionLimit:10
 })
 async function getStuff(){
 return new Promise((resolve,reject)=>{
-    connection.connect();
-    connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
+    connection.getConnection((err,connection)=>{
         if(err){
-            console.error(err.stack)
+            console.error(err)
             reject(err)
         }
         else{
-            resolve(rows)
+            connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
+                connection.release()
+                if(err){
+                    console.error(err.stack)
+                    reject(err)
+                }
+                else{
+                    resolve(rows)
+                }
+            })
         }
-        connection.close()
     })
+
+
 
 })
 }
