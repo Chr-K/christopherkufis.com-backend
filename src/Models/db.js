@@ -14,8 +14,10 @@ async function getStuff(){
     connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
         if(err) 
         {console.error(err.stack)}
+        else{
+            console.log(rows)
+        }
         connection.end();
-        return(rows[0])
     })
 
 }
