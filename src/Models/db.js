@@ -14,7 +14,7 @@ async function getStuff(){
         if(err) 
         {console.log(err)}
     
-        return rows[0]
+        return(rows.json())
     })
 
     connection.end();
