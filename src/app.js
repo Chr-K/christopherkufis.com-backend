@@ -6,5 +6,5 @@ app.listen(3000)
 
 app.get('/articles',async (req,res)=>{
     const stuff = await getStuff();
-    res.send('stuff')
+    res.send(stuff)
 })
