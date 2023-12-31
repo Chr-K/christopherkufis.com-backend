@@ -4,7 +4,10 @@ const app = express()
 
 app.listen(3000)
 
-app.get('/articles',async (req,res)=>{
-    const stuff = await getStuff();
-    res.send(stuff)
+app.get('/articles',(req,res)=>{
+    const stuff = getStuff((res)=>{
+        res.send(res.json())
+    });
+
+    res.send('stuff')
 })

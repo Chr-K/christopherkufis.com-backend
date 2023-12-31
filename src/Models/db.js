@@ -8,17 +8,16 @@ const connection = mysql.createConnection({
     port:process.env.PORT
 })
 
-async function getStuff(){
+async function getStuff(callback){
     connection.connect()
 
     connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
         if(err) 
         {console.error(err.stack)}
         else{
-            console.log(rows)
+            callback(rows)
         }
         connection.end();
-        return (rows)
     })
 
 }
