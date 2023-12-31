@@ -4,7 +4,7 @@ const app = express()
 
 app.listen(3000)
 
-app.get('/articles',(res,req)=>{
+app.get('/articles',(req,res)=>{
     const stuff = getStuff();
     res.send(stuff)
 })
