@@ -8,41 +8,17 @@ const connection = mysql.createConnection({
     port:process.env.PORT
 })
 
-function connect() {
-    return new Promise((resolve, reject) => {
-      connection.connect((err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve();
-        }
-      });
-    });
-  }
-  
-  function query(sql) {
-    return new Promise((resolve, reject) => {
-      connection.query(sql, (err, rows, fields) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(rows);
-        }
-      });
-    });
-  }
-  
-  async function getStuff() {
-    try {
-      await connect();
-      const rows = await query('SELECT * FROM BLOG');
-      return rows;
-    } catch (error) {
-      console.error(error);
-      throw error; // Rethrow the error for higher-level error handling
-    } finally {
-      connection.end();
-    }
-  }
-  
-  module.exports = getStuff;
+function getStuff(){
+    connection.connect()
+
+    connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
+        if(err) 
+        {console.log(err)}
+        return(rows)
+    })
+
+    connection.end();
+}
+console.log(getStuff())
+
+module.exports = getStuff;
