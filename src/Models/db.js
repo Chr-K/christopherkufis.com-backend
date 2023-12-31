@@ -14,7 +14,7 @@ async function getStuff(){
         if(err) 
         {console.error(err.stack)}
         else{
-            return(rows)
+            return(rows[0])
         }
     })
     connection.end();
