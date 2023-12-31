@@ -5,6 +5,11 @@ const app = express()
 app.listen(3000)
 
 app.get('/articles', async (req,res)=>{
-const stuff = await getStuff()
-res.send(stuff)
+    try {
+        const rows = await getStuff();
+        res.send(JSON.stringify(rows));
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Internal Server Error');
+    }
 })

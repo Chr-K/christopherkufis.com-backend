@@ -17,9 +17,8 @@ async function getStuff(callback){
         else{
             callback(rows)
         }
-        connection.end();
     })
-
+    connection.end();
 }
 
 module.exports = getStuff;
