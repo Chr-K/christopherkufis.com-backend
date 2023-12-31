@@ -4,10 +4,15 @@ const app = express()
 
 app.listen(3000)
 
-
-    const rows =  getStuff();
-    console.log(JSON.stringify(rows))
-
 app.get('/articles', async (req,res)=>{
+    try{
+        const rows = await getStuff()
+        console.log(JSON.stringify(rows))
+        res.send(rows)
+    } 
+    catch(err){
+        console.error(err)
+        res.status(500).send('beep boop')
+    }
 
 })

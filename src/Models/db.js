@@ -7,14 +7,14 @@ const connection = mysql.createConnection({
     database:process.env.DB,
     port:process.env.PORT
 })
-async function getStuff(callback){
+async function getStuff(){
     connection.connect()
 
     connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
         if(err) 
         {console.error(err.stack)}
         else{
-            callback(rows)
+            return(rows)
         }
     })
     connection.end();
