@@ -1,6 +1,6 @@
 const connection = require('./db')
 
-async function getStuff(){
+async function getArticles(){
     return new Promise((resolve,reject)=>{
         connection.getConnection((err,connection)=>{
             if(err){
@@ -25,4 +25,6 @@ async function getStuff(){
     
     })
     }
-    module.exports = getStuff
+    module.exports = {
+        getArticles,
+    }
