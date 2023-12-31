@@ -18,6 +18,7 @@ async function getStuff(){
             console.log(rows)
         }
         connection.end();
+        return (rows)
     })
 
 }
