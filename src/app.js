@@ -7,7 +7,7 @@ app.listen(3000)
 app.get('/articles', async (req,res)=>{
     try{
         const rows = await getStuff()
-        console.log(JSON.stringify(rows))
+        console.log(rows)
         res.send(rows)
     } 
     catch(err){
