@@ -4,7 +4,9 @@ const app = express()
 const routes = require('./routes')
 const bodyParser = require('body-parser')
 const auth = require('./auth')
+const cors = require('cors')
 auth.Authenticate()
+app.use(cors)
 app.use(bodyParser.json({ extended: true }));
 app.use(session({
     secret:'secret',
