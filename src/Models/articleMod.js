@@ -25,6 +25,24 @@ async function getArticles(){
     
     })
     }
+
+    async function getArticle(id){
+        return new Promise((resolve,reject)=>{
+            connection.getConnection((err,connection)=>{
+                if(err){
+                    console.error(err)
+                    reject(err)
+                }
+                else{
+                    connection.query('SELECT * FROM BLOG WHERE ID = ?',[id])
+                }
+            })
+        })
+    }
+
+
+
     module.exports = {
         getArticles,
+        getArticle
     }

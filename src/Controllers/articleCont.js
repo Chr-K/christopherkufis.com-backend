@@ -10,7 +10,17 @@ async function getArticles(req,res){
         console.error(err)
     }
 }
+async function getArticle(req,res){
+    try{
+        const article = await articleModel.getArticle(req.id)
+        res.send(article)
+    }
+    catch(err){
+        console.error(err)
+    }
+}
 
 module.exports = {
     getArticles,
+    getArticle
 }
