@@ -1,8 +1,10 @@
+
+
 async function Authenticate(){
 return ("kekw");
 }
 
 
-modules.exports={
+module.exports={
     Authenticate,
 }
