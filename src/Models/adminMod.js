@@ -15,7 +15,7 @@ async function GETUserByName(NAME){
                         reject(err)
                     }
                     else{
-                        resolve(JSON.stringify(rows[0]))
+                        resolve(rows)
                     }
                 })
             }
