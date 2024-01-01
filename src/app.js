@@ -1,9 +1,9 @@
 const express = require('express')
 const session = require('express-session')
+console.log('hi')
 const logger = require('morgan')
 var passport = require('passport');
 console.log('hi')
-
 const SQLiteStore = require('connect-sqlite3')
 const app = express()
 const routes = require('./routes')
