@@ -7,7 +7,7 @@ async function Login(){
                 console.error(err)
             }
             else{
-                connection.query('GET * FROM BLOG',(err,rows,fields)=>{
+                connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
                     connection.release();
                     if(err){
                         console.error(err.stack)
