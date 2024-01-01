@@ -10,7 +10,6 @@ var SQLiteStore = require('connect-sqlite3')(session);
 
 auth.Authenticate()
 app.use(bodyParser.json({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
     secret:'keyboard cat',
