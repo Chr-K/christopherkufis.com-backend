@@ -3,7 +3,7 @@ const passport = require('passport')
 const router = express.Router()
 const articleController = require('./Controllers/articleCont')
 router.get('/articles', articleController.getArticles)
-router.get('/article',articleController)
+router.get('/article',articleController.getArticle)
 router.post('/auth',(req,res,next)=>{
     passport.authenticate('local',(err,user,info)=>{
         if(err){return next(err)}
