@@ -1,6 +1,19 @@
+var express = require('express')
+var passport = require('passport')
+var LocalStrategy = require('passport-local')
+var crypto = require('crypto')
+
 async function Authenticate(user,req){
-console.log(req.body)
-return ("kekw");
+    console.log(user)
+    passport.use(new LocalStrategy(function verify(username,password,cb){
+        crypto.pbkdf2(password,row.salt,310000,32,'sha256',function(err,hashedPassword){
+            if(err){return cb(err)}
+            if(!crypto.timingSafeEqual(row.hassedPassword,hashedPassword)){
+                return cb(null,fall,{message:'incorrect login info'})
+            }
+            return cb(null,row)
+        })
+    }))
 }
 
 
