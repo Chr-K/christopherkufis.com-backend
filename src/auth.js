@@ -9,7 +9,7 @@ async function Authenticate(){
           if (err) { return cb(err); }
           if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
           crypto.pbkdf2(password, row[0].salt, 310000, 64, 'sha256', function(err, hashedPassword){
-            console.log(JSON.stringify(Buffer.toString(hashedPassword)))
+            console.log(JSON.stringify(hashedPassword))
             console.log('\n')
             console.log(JSON.stringify(Buffer.from(row[0].PASSWORD)))
             if (err) { return cb(err);}
