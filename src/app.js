@@ -13,7 +13,7 @@ app.use(session({
     secret:'keyboard cat',
     resave: false,
     saveUninitialized: false,
-    store: new SQLiteStore({db:'sessions.db',dir:'./var/db'})
+    store: new SQLiteStore({db:'sessions.db',dir:'/'})
 }))
 app.use('/',routes)
 app.listen(3000)
