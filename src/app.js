@@ -1,6 +1,7 @@
+console.log('hi')
+
 const express = require('express')
 const session = require('express-session')
-console.log('hi')
 const logger = require('morgan')
 var passport = require('passport');
 console.log('hi')
