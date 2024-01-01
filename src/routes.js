@@ -5,7 +5,6 @@ const articleController = require('./Controllers/articleCont')
 router.get('/articles', articleController.getArticles)
 router.post('/auth',passport.authenticate('local',{
 successRedirect:'https://cp.christopherkufis.com/home',
-}), function(req,res){
-    console.log('sleep')
-})
+failureRedirect:'https://cp.christopherkufis.com/',
+}))
 module.exports = router
