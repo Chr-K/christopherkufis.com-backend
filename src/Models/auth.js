@@ -1,5 +1,3 @@
-
-
 async function Authenticate(){
 return ("kekw");
 }
