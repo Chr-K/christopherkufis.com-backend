@@ -3,6 +3,7 @@ var LocalStrategy = require('passport-local')
 var crypto = require('crypto')
 
 async function Authenticate(user,req){
+    console.log('lobster')
     passport.use(new LocalStrategy(function verify(cb) {
         console.log('schleem')
           crypto.pbkdf2(req.body["PASSWORD"], user.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
