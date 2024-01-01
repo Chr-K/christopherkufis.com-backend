@@ -6,5 +6,7 @@ router.get('/articles', articleController.getArticles)
 router.post('/auth',passport.authenticate('local',{
 successRedirect:'https://cp.christopherkufis.com/home',
 failureRedirect:'https://cp.christopherkufis.com/'
-}))
+}),()=>{
+    console.log("beep bop boop")
+})
 module.exports = router
