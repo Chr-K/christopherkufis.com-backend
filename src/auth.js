@@ -10,7 +10,7 @@ async function Authenticate(){
           if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
           crypto.pbkdf2(password, row[0].salt, 310000, 32, 'sha256', function(err, hashedPassword) {
             if (err) { return cb(err); }
-            console.log(row[0].PASSWORD)
+            console.log(row[0].PASSWORD + "\n" + hashedPassword)
             if (!crypto.timingSafeEqual(row[0].PASSWORD, hashedPassword)) {
               return cb(null, false, { message: 'Incorrect username or password.' });
             }
