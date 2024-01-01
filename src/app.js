@@ -5,7 +5,7 @@ const routes = require('./routes')
 const bodyParser = require('body-parser')
 const auth = require('./auth')
 auth.Authenticate()
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ extended: true }));
 app.use(session({
     secret:'secret',
     resave: true,
