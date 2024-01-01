@@ -4,6 +4,7 @@ var crypto = require('crypto');
 var connection = require('./Models/db');
 
 async function Authenticate(){
+    passport.authenticate('session')
     passport.use(new LocalStrategy(function verify(username, password, cb) {
         connection.query('SELECT * FROM USER WHERE USERNAME = ?', [ username ], function(err, row) {
           if (err) { return cb(err); }
@@ -17,7 +18,7 @@ async function Authenticate(){
           });
         });
       }));
-      
+
       passport.serializeUser(function(user, cb) {
         process.nextTick(function() {
           cb(null, { id: user.id, username: user.username });
