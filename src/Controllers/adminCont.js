@@ -1,5 +1,5 @@
 const AdminModel = require('../Models/adminMod')
-const authModel = require('../Models/auth')
+const authModel = require('../auth')
 
 async function Login(req,res){
     try{
