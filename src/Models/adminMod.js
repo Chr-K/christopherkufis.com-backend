@@ -5,6 +5,7 @@ async function Login(){
         connection.getConnection((err,connection)=>{
             if(err){
                 console.error(err)
+                reject(err)
             }
             else{
                 connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
