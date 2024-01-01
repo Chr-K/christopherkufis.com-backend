@@ -34,6 +34,7 @@ async function getArticles(){
                     reject(err)
                 }
                 else{
+                    console.log(id)
                     connection.query('SELECT * FROM BLOG WHERE ID = ?',[id],(err,rows,fields)=>{
                         connection.release()
                         if(err){
