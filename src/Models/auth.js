@@ -1,22 +1,24 @@
-var passport = require('passport')
-var LocalStrategy = require('passport-local')
-var crypto = require('crypto')
+var express = require('express');
+var passport = require('passport');
+var LocalStrategy = require('passport-local');
+var crypto = require('crypto');
+var connection = require('../db');
 
-async function Authenticate(user,req){
-    console.log('lobster')
-    passport.use(new LocalStrategy(function verify(cb) {
-        console.log('schleem')
-          crypto.pbkdf2(req.body["PASSWORD"], user.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
-            console.log('schlop')
+async function Authenticate(){
+    passport.use(new LocalStrategy(function verify(username, password, cb) {
+        connection.query('SELECT * FROM USER WHERE USERNAME = ?', [ username ], function(err, row) {
+          if (err) { return cb(err); }
+          if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
+      
+          crypto.pbkdf2(password, row.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
             if (err) { return cb(err); }
-            console.log("ping")
-            if (!crypto.timingSafeEqual(user.hashed_password, hashedPassword)) {
-                console.log('pang')
+            if (!crypto.timingSafeEqual(row.hashed_password, hashedPassword)) {
               return cb(null, false, { message: 'Incorrect username or password.' });
             }
-            console.log('chaching')
-            return cb(null, user);
+            return cb(null, row);
           });
+        });
+        console.log("lobby")
       }));
 }
 
