@@ -4,6 +4,7 @@ const logger = require('morgan')
 var passport = require('passport');
 const SQLiteStore = require('connect-sqlite3')
 const app = express()
+console.log('hi')
 const routes = require('./routes')
 const bodyParser = require('body-parser')
 const auth = require('./auth')
