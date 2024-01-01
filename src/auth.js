@@ -12,6 +12,7 @@ async function Authenticate(){
             console.log(hashedPassword)
             if (err) { return cb(err);}
             if (!crypto.timingSafeEqual(Buffer.from(row[0].PASSWORD), hashedPassword)) {
+              console.log('bad password')
               return cb(null, false, { message: 'Incorrect username or password.' });
             }
             return cb(null, row);
