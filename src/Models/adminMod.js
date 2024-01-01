@@ -15,7 +15,7 @@ async function GETUserByName(NAME){
                         reject(err)
                     }
                     else{
-                        resolve(rows)
+                        resolve(rows[0])
                     }
                 })
             }
