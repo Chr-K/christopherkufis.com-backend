@@ -5,7 +5,7 @@ const articleController = require('./Controllers/articleCont')
 router.get('/articles', articleController.getArticles)
 router.get('/article',(req,res,next)=>{
     articleController.getArticle(req,res)
-    console.log(req)
+    console.log(req.body)
 })
 
 
