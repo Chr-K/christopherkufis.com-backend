@@ -3,7 +3,7 @@ const authModel = require('../Models/auth')
 
 async function Login(req,res){
     try{
-        const response = await AdminModel.GETUserByName()
+        const response = await AdminModel.GETUserByName(req.body['USERNAME'])
         const auth = await authModel.Authenticate(response,req)
         res.send(auth)
     }

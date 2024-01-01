@@ -1,6 +1,6 @@
 const connection = require('./db')
 
-async function GETUserByName(){
+async function GETUserByName(NAME){
     return new Promise((resolve,reject)=>{
         connection.getConnection((err,connection)=>{
             if(err){
@@ -8,7 +8,7 @@ async function GETUserByName(){
                 reject(err)
             }
             else{
-                connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
+                connection.query('SELECT * FROM USER WHERE NAME = ?',[NAME],(err,rows,fields)=>{
                     connection.release();
                     if(err){
                         console.error(err.stack)
