@@ -7,6 +7,6 @@ router.post('/auth',passport.authenticate('local',{
 successRedirect:'https://cp.christopherkufis.com/home',
 failureRedirect:'https://cp.christopherkufis.com/'
 }), function(req,res){
-    res.redirect('/home')
+    res.send('/home')
 })
 module.exports = router
