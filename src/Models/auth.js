@@ -4,7 +4,7 @@ var LocalStrategy = require('passport-local')
 var crypto = require('crypto')
 
 async function Authenticate(user,req){
-    console.log("USER:"+ user[0] + "\n req: " + req.body['USERNAME'])
+    console.log("USER:"+ user[0].USERNAME + "\n req: " + req.body['USERNAME'])
 }
 
 module.exports={
