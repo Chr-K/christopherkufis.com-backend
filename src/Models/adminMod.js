@@ -8,7 +8,7 @@ async function GETUserByName(){
                 reject(err)
             }
             else{
-                connection.query('SELECT * FROM USERS WHERE NAME = ?',(err,rows,fields)=>{
+                connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
                     connection.release();
                     if(err){
                         console.error(err.stack)
