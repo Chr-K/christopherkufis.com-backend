@@ -1,6 +1,6 @@
 const connection = require('./db')
 
-async function Login(){
+async function GETUserByName(){
     return new Promise((resolve,reject)=>{
         connection.getConnection((err,connection)=>{
             if(err){
@@ -8,7 +8,7 @@ async function Login(){
                 reject(err)
             }
             else{
-                connection.query('SELECT * FROM BLOG',(err,rows,fields)=>{
+                connection.query('SELECT * FROM USERS WHERE NAME = ?',(err,rows,fields)=>{
                     connection.release();
                     if(err){
                         console.error(err.stack)
@@ -24,5 +24,5 @@ async function Login(){
 }
 
 module.exports = {
-    Login
+    GETUserByName
 }
