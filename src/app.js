@@ -12,7 +12,13 @@ auth.Authenticate()
 
 app.use(bodyParser.json({ extended: true }));
 
+app.use(session({
+    secret:'keyboard cat',
+    resave: false,
+    saveUninitialized: false,
+    store: new SQLiteStore({db:'sessions.db',dir:'./var/db'})
+}))
 
-app.use(passport.authenticate('session'))
+
 app.use('/',routes)
 app.listen(3000)
