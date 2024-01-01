@@ -12,7 +12,7 @@ async function getArticles(req,res){
 }
 async function getArticle(req,res){
     try{
-        console.log(req.body)
+        console.log(req.body.id)
         const article = await articleModel.getArticle(req.id)
         res.send(article)
     }
