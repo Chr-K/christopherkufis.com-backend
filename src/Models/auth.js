@@ -1,5 +1,5 @@
 async function Authenticate(user,req){
-console.log(req.content)
+console.log(req.body)
 return ("kekw");
 }
 
