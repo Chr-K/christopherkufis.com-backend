@@ -8,7 +8,8 @@ async function Authenticate(){
         connection.query('SELECT * FROM USER WHERE USERNAME = ?', [ username ], function(err, row) {
           if (err) { return cb(err); }
           if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
-          crypto.pbkdf2(password, row[0].salt, 310000, 32, 'sha256', function(err, hashedPassword) {
+          crypto.pbkdf2(password, row[0].salt, 310000, 32, 'sha256', function(err, hashedPassword){
+            console.log(hashedPassword)
             if (err) { return cb(err); }
             if (!crypto.timingSafeEqual(Buffer.from(row[0].PASSWORD), hashedPassword)) {
               return cb(null, false, { message: 'Incorrect username or password.' });
