@@ -4,7 +4,7 @@ const router = express.Router()
 const articleController = require('./Controllers/articleCont')
 router.get('/articles', articleController.getArticles)
 router.post('/auth',passport.authenticate('local',{
-successRedirect:'/',
-failureRedirect:'/login'
+successRedirect:'/home',
+failureRedirect:'/'
 }))
 module.exports = router
