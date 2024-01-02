@@ -4,7 +4,6 @@ const router = express.Router()
 const articleController = require('./Controllers/articleCont')
 router.get('/articles', articleController.getArticles)
 router.get('/article',(req,res,next)=>{
-    console.log("hi")
     articleController.getArticle(req,res)
 })
 

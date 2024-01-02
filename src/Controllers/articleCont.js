@@ -12,7 +12,6 @@ async function getArticles(req,res){
 }
 async function getArticle(req,res){
     try{
-        console.log("Hi")
         const article = await articleModel.getArticle(req.body.ID)
         res.send(article)
     }
