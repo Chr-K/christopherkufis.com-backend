@@ -2,9 +2,15 @@ const express = require('express')
 const passport = require('passport')
 const router = express.Router()
 const articleController = require('./Controllers/articleCont')
+
 router.get('/articles', articleController.getArticles)
-router.get('/article',(req,res,next)=>{
-    console.log("article")
+
+
+
+
+
+
+router.post('/article',(req,res,next)=>{
     articleController.getArticle(req,res)
 })
 
