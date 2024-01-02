@@ -26,7 +26,7 @@ async function getArticles(){
     })
     }
 
-    async function getArticle(id){
+    async function getArticle(ID){
         return new Promise((resolve,reject)=>{
             connection.getConnection((err,connection)=>{
                 if(err){
@@ -34,8 +34,7 @@ async function getArticles(){
                     reject(err)
                 }
                 else{
-                    console.log(id)
-                    connection.query('SELECT * FROM BLOG WHERE ID = ?',[id],(err,rows,fields)=>{
+                    connection.query('SELECT * FROM BLOG WHERE ID = ?',[ID],(err,rows,fields)=>{
                         connection.release()
                         if(err){
                             console.error(err.stack)
