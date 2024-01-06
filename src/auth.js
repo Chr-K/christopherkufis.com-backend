@@ -9,13 +9,11 @@ async function Authenticate(){
           if (err) { return cb(err); }
           if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
           const user = row[0]
-          console.log (user)
           crypto.pbkdf2(password, user.salt, 310000, 64, 'sha256', function(err, hashedPassword){
             if (err) {return cb(err);}
             if (!crypto.timingSafeEqual(Buffer.from(user.password,'base64'), hashedPassword)) {
               return cb(null, false, { message: 'Incorrect username or password.' });
             }
-            console.log(user)
             return cb(null, user);
           });
         });
