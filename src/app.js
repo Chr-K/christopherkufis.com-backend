@@ -45,10 +45,6 @@ app.use(session({
         sameSite:'none',
     }
 }))
-app.use(passport.session())
-
-
-
 auth.Authenticate()
 
 passport.serializeUser(function(user,done){
@@ -62,7 +58,9 @@ passport.serializeUser(function(user,done){
     });
   });
 
+  app.use(passport.session())
+
+
 
 app.use('/',routes)
-app.use(passport.authenticate('session'))
 app.listen(3000)
