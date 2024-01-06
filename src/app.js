@@ -5,7 +5,21 @@ const routes = require('./routes')
 const bodyParser = require('body-parser')
 const auth = require('./auth')
 const passport = require('passport')
-var SQLiteStore = require('connect-sqlite3')(session);
+const MySQLStore = require('express-mysql-session')(session);
+const connection = require('./Models/db').connection;
+
+const sessionStore = new MySQLStore({
+    expiration:3600000,
+    createDatabaseTable:true,
+    schema:{
+        tableName:'sessions',
+        session_id:'session_id',
+        expires:'expires',
+        data:'data',
+    }
+},connection)
+
+
 
 app.use(bodyParser.json({ extended: true }));
 
@@ -16,7 +30,7 @@ app.use(session({
     secret:'keyboard cat',
     resave: false,
     saveUninitialized: false,
-    store: new SQLiteStore({db:'sessions.db',dir:'./var/db'})
+    store:sessionStore
 }))
 app.use(passport.session())
 

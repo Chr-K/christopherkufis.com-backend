@@ -1,7 +1,7 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var crypto = require('crypto');
-var connection = require('./Models/db');
+var connection = require('./Models/db').connectionPool;
 
 async function Authenticate(){
     passport.use(new LocalStrategy(function verify(username, password, cb) {
