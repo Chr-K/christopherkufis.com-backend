@@ -19,15 +19,13 @@ router.post('/auth',(req,res,next)=>{
         }
         req.login(user,(err)=>{
             if(err){return next(err)}
-            console.log(req.isAuthenticated())
             return(res.status(200).json({message:"Welcome"}))
         })
-        console.log(req.user)
     })(req,res,next)
 })
 
 router.post('/submitarticle',(req,res,next)=>{
-    console.log(req)
+    console.log(req.user)
     if(req.isAuthenticated()){
         res.status(200).json('is logged in')
     }
