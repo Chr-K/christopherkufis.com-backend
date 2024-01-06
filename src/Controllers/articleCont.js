@@ -19,8 +19,18 @@ async function getArticle(req,res){
         console.error(err)
     }
 }
+async function createArticle(req,res){
+    try{
+        const article = await articleModel.createArticle(req.body)
+        res.send(article)
+    }
+    catch(err){
+        console.error(err)
+    }
+}
 
 module.exports = {
     getArticles,
-    getArticle
+    getArticle,
+    createArticle
 }
