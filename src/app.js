@@ -8,6 +8,8 @@ const passport = require('passport')
 
 var SQLiteStore = require('connect-sqlite3')(session);
 
+app.set('trust proxy',1)
+
 app.use(bodyParser.json({ extended: true }));
 
 app.use(session({
