@@ -25,7 +25,8 @@ router.post('/auth',(req,res,next)=>{
 })
 
 router.post('/submitarticle',(req,res,next)=>{
-    console.log(req.session)
+    console.log(req.session.cookie)
+    
     if(req.isAuthenticated()){
         res.status(200).json('is logged in')
     }
