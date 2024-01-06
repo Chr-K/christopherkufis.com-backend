@@ -16,7 +16,6 @@ app.use(session({
     secret:'keyboard cat',
     resave: false,
     saveUninitialized: false,
-    cookie:{secure:false},
     store: new SQLiteStore({db:'sessions.db',dir:'./var/db'})
 }))
 
