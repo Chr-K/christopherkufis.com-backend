@@ -12,10 +12,12 @@ const sessionStore = new MySQLStore({
     expiration:3600000,
     createDatabaseTable:true,
     schema:{
-        tableName:'sessions',
-        session_id:'session_id',
-        expires:'expires',
-        data:'data',
+        columnNames:{
+            tableName:'sessions',
+            session_id:'session_id',
+            expires:'expires',
+            data:'data'
+        }
     }
 },connection)
 
