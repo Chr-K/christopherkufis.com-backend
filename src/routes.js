@@ -18,8 +18,7 @@ router.post('/auth',(req,res,next)=>{
             return res.status(401).json({Message:"Authentication has failed"})
         }
         console.log(req.session)
-        res.status(200)
-        return(res.send('welcome'))
+        return res.status(200).json({message:"Welcome"})
     })(req,res,next)
 
 })
