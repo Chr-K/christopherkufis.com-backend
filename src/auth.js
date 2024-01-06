@@ -8,12 +8,14 @@ async function Authenticate(){
         connection.query('SELECT * FROM USER WHERE USERNAME = ?', [ username ], function(err, row) {
           if (err) { return cb(err); }
           if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
-          crypto.pbkdf2(password, row[0].salt, 310000, 64, 'sha256', function(err, hashedPassword){
+          const user = row[0]
+          crypto.pbkdf2(password, user.salt, 310000, 64, 'sha256', function(err, hashedPassword){
             if (err) {return cb(err);}
-            if (!crypto.timingSafeEqual(Buffer.from(row[0].PASSWORD,'base64'), hashedPassword)) {
+            if (!crypto.timingSafeEqual(Buffer.from(user.PASSWORD,'base64'), hashedPassword)) {
               return cb(null, false, { message: 'Incorrect username or password.' });
             }
-            return cb(null, row[0]);
+            console.log(user)
+            return cb(null, user);
           });
         });
       }));
