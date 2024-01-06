@@ -34,10 +34,11 @@ app.use(cors({
 
 app.use(session({
     secret:'keyboard cat',
-    resave: false,
-    saveUninitialized: false,
+    resave: true,
+    saveUninitialized: true,
     store:sessionStore,
     cookie:{
+        domain:'https://api.christopherkufis.com',
         maxAge:1000*60*60*24*7,
         secure:true,
         sameSite:'none',
