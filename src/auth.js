@@ -14,6 +14,7 @@ async function Authenticate(){
             if (!crypto.timingSafeEqual(Buffer.from(row[0].PASSWORD,'base64'), hashedPassword)) {
               return cb(null, false, { message: 'Incorrect username or password.' });
             }
+            console.log("1")
             return cb(null, row);
           });
         });

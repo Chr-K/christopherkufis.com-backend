@@ -1,6 +1,5 @@
 const express = require('express')
 const passport = require('passport')
-
 const router = express.Router()
 const articleController = require('./Controllers/articleCont')
 
@@ -19,10 +18,7 @@ router.post('/auth',(req,res,next)=>{
             return res.status(401).json({Message:"Authentication has failed"})
         }
 
-        if(req.isAuthenticated()){
-            res.status(200).json({Message:"Welcome"})
-        }
-
+        return res.status(200).json({message:"Welcome"})
     })(req,res,next)
 
 })
