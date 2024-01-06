@@ -53,7 +53,6 @@ app.use(passport.session())
 auth.Authenticate()
 
 passport.serializeUser(function(user,done){
-
     done(null,user.id)
   })
 
