@@ -19,7 +19,7 @@ router.post('/auth',(req,res,next)=>{
         }
         return res.status(200).json({message:"Welcome"})
     })(req,res,next)
-
+    console.log(req.session)
 })
 
 router.post('/submitarticle',(req,res,next)=>{
