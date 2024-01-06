@@ -66,5 +66,5 @@ passport.serializeUser(function(user,done){
 
 
 app.use('/',routes)
-
+app.use(passport.authenticate('session'))
 app.listen(3000)
