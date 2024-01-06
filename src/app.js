@@ -46,7 +46,7 @@ passport.serializeUser(function(user,done){
   })
 
   passport.deserializeUser(function(id, done){
-    connection.query('SELECT * FROM users WHERE id = ?', [ id ], function(err, user) {
+    connection.query('SELECT * FROM USER WHERE id = ?', [ id ], function(err, user) {
     if (err) { return done(err); }
     return done(null, user);
     });
