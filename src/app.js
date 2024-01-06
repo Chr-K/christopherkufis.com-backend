@@ -5,12 +5,12 @@ const routes = require('./routes')
 const bodyParser = require('body-parser')
 const auth = require('./auth')
 const passport = require('passport')
-
 var SQLiteStore = require('connect-sqlite3')(session);
+
+app.use(bodyParser.json({ extended: true }));
 
 app.set('trust proxy',1)
 
-app.use(bodyParser.json({ extended: true }));
 
 app.use(session({
     secret:'keyboard cat',
@@ -23,6 +23,7 @@ app.use(passport.authenticate('session'))
 
 app.use(passport.initialize())
 app.use(passport.session())
+
 auth.Authenticate()
 
 app.use('/',routes)
