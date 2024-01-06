@@ -24,6 +24,14 @@ router.post('/auth',(req,res,next)=>{
     })(req,res,next)
 })
 
+router.post('/logout',(req,res,next)=>{
+    req.logout(function(err){
+        if(err){return next(err)}
+        res.redirect('/login')
+    })
+})
+
+
 router.post('/submitarticle',(req,res,next)=>{
     console.log(req.session.id)
     
