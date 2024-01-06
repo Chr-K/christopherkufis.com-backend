@@ -18,9 +18,10 @@ async function Authenticate(){
           });
         });
       }));
-      
+      console.log('hi')
       passport.serializeUser(function(user,done){
         console.log(user.id);
+
         done(null,user.id)
       })
 
