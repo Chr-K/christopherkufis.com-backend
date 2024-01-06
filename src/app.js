@@ -2,7 +2,6 @@ const express = require('express')
 const session = require('express-session')
 const app = express()
 const routes = require('./routes')
-const bodyParser = require('body-parser')
 const auth = require('./auth')
 const passport = require('passport')
 const MySQLStore = require('express-mysql-session')(session);
@@ -23,9 +22,8 @@ const sessionStore = new MySQLStore({
     }
 },connection)
 
+app.use(express.json())
 
-
-app.use(bodyParser.json({ extended: true }));
 
 app.set('trust proxy',1)
 
