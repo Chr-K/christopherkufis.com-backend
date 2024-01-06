@@ -31,7 +31,7 @@ app.use(cors({
     origin:'https://cp.christopherkufis.com',
     credentials:true,
 }))
-
+app.options('/submitarticle',cors())
 app.use(session({
     secret:'keyboard cat',
     resave: true,
