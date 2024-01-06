@@ -27,7 +27,7 @@ router.post('/auth',(req,res,next)=>{
 router.post('/logout',(req,res,next)=>{
     req.logout(function(err){
         if(err){return next(err)}
-        res.redirect('https://christopherkufis.com-cp/')
+        res.redirect('https://cp.christopherkufis.com/')
     })
 })
 
