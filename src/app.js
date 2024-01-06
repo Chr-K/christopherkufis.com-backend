@@ -7,6 +7,8 @@ const auth = require('./auth')
 const passport = require('passport')
 const MySQLStore = require('express-mysql-session')(session);
 const connection = require('./Models/db').connection;
+const cors = require('cors')
+
 
 const sessionStore = new MySQLStore({
     expiration:3600000,
@@ -27,6 +29,10 @@ app.use(bodyParser.json({ extended: true }));
 
 app.set('trust proxy',1)
 
+app.use(cors({
+    origin:'https://cp.christopherkufis.com',
+    credentials:true,
+}))
 
 app.use(session({
     secret:'keyboard cat',
