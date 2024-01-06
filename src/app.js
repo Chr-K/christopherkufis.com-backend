@@ -30,6 +30,8 @@ app.set('trust proxy',1)
 app.use(cors({
     origin:'https://cp.christopherkufis.com',
     credentials:true,
+    allowedHeaders:['Content-Type','Authorization'],
+
 }))
 app.options('/submitarticle',cors())
 app.use(session({
