@@ -32,7 +32,11 @@ app.use(session({
     secret:'keyboard cat',
     resave: false,
     saveUninitialized: false,
-    store:sessionStore
+    store:sessionStore,
+    cookie:{
+        maxAge:1000*60*60*24*7,
+        secure:true,
+    }
 }))
 app.use(passport.session())
 
