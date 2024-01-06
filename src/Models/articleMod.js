@@ -1,4 +1,4 @@
-const connection = require('./db')
+const connection = require('./db').connectionPool
 
 async function getArticles(){
     return new Promise((resolve,reject)=>{
