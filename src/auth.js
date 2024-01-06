@@ -14,7 +14,6 @@ async function Authenticate(){
             if (!crypto.timingSafeEqual(Buffer.from(user.PASSWORD,'base64'), hashedPassword)) {
               return cb(null, false, { message: 'Incorrect username or password.' });
             }
-            console.log(user)
             return cb(null, user);
           });
         });
@@ -22,7 +21,7 @@ async function Authenticate(){
       
       passport.serializeUser(function(user, cb) {
         process.nextTick(function() {
-          cb(null, { id: user.id, username: user.username });
+          cb(null, { id: user.ID, username: user.USERNAME});
         });
       });
       
