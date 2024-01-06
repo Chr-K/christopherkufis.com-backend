@@ -5,6 +5,7 @@ const app = express()
 const routes = require('./routes')
 const bodyParser = require('body-parser')
 const auth = require('./auth')
+const passport = require('passport')
 
 var SQLiteStore = require('connect-sqlite3')(session);
 
@@ -18,4 +19,8 @@ app.use(session({
     store: new SQLiteStore({db:'sessions.db',dir:'./var/db'})
 }))
 app.use('/',routes)
+
+app.use(passport.initialize())
+app.use(passport.session())
+
 app.listen(3000)
