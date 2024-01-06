@@ -14,13 +14,13 @@ async function Authenticate(){
             if (!crypto.timingSafeEqual(Buffer.from(user.password,'base64'), hashedPassword)) {
               return cb(null, false, { message: 'Incorrect username or password.' });
             }
-            console.log(user.id);
             return cb(null, user);
           });
         });
       }));
       
       passport.serializeUser(function(user,done){
+        console.log(user.id);
         done(null,user.id)
       })
 
