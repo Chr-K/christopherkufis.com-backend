@@ -18,6 +18,7 @@ router.post('/auth',(req,res,next)=>{
             return res.status(401).json({Message:"Authentication has failed"})
         }
         console.log(req.session)
+        console.log(req.user)
         return res.status(200).json({message:"Welcome"})
     })(req,res,next)
 
@@ -25,6 +26,7 @@ router.post('/auth',(req,res,next)=>{
 
 router.post('/submitarticle',(req,res,next)=>{
     console.log(req.session)
+    console.log(req.user)
     if(req.isAuthenticated()){
         res.status(200).json('is logged in')
     }
