@@ -38,12 +38,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
     store:sessionStore,
-    cookie:{
-        domain:'christopherkufis.com',
-        maxAge:1000*60*60*24*7,
-        secure:true,
-        sameSite:'none',
-    }
 }))
 auth.Authenticate()
 
