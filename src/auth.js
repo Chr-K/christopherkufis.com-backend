@@ -4,6 +4,7 @@ var crypto = require('crypto');
 var connection = require('./Models/db').connectionPool;
 
 async function Authenticate(){
+  console.log("authentication initializing")
     passport.use(new LocalStrategy(function verify(username, password, cb) {
         connection.query('SELECT * FROM USER WHERE username = ?', [ username ], function(err, row) {
           if (err) { return cb(err); }

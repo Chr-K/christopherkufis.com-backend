@@ -60,7 +60,6 @@ passport.serializeUser(function(user, cb){
   });
 
 auth.Authenticate()
-
 app.use('/',routes)
 
 app.listen(3000)
