@@ -36,6 +36,7 @@ app.use(session({
     cookie:{
         maxAge:1000*60*60*24*7,
         secure:true,
+        sameSite:'none',
     }
 }))
 app.use(passport.session())
