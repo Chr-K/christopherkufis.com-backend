@@ -33,7 +33,7 @@ app.use(cors({
     allowedHeaders:['Content-Type','Authorization'],
 
 }))
-app.options('/submitarticle',cors())
+app.options('/submitarticle')
 app.use(session({
     secret:'keyboard cat',
     resave: true,
@@ -58,8 +58,6 @@ passport.serializeUser(function(user,done){
   })
 
   passport.deserializeUser(function(id, done){
-    console.log(user.id);
-
     connection.query('SELECT * FROM users WHERE id = ?', [ id ], function(err, user) {
     if (err) { return cb(err); }
     return done(null, user);
