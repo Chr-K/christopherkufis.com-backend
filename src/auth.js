@@ -5,16 +5,16 @@ var connection = require('./Models/db');
 
 async function Authenticate(){
     passport.use(new LocalStrategy(function verify(username, password, cb) {
-        connection.query('SELECT * FROM USER WHERE USERNAME = ?', [ username ], function(err, row) {
+        connection.query('SELECT * FROM USER WHERE username = ?', [ username ], function(err, row) {
           if (err) { return cb(err); }
           if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
           const user = row[0]
           crypto.pbkdf2(password, user.salt, 310000, 64, 'sha256', function(err, hashedPassword){
             if (err) {return cb(err);}
-            if (!crypto.timingSafeEqual(Buffer.from(user.PASSWORD,'base64'), hashedPassword)) {
+            if (!crypto.timingSafeEqual(Buffer.from(user.password,'base64'), hashedPassword)) {
               return cb(null, false, { message: 'Incorrect username or password.' });
             }
-            console.log(user.ID)
+            console.log(user)
             return cb(null, user);
           });
         });
