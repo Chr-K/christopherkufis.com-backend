@@ -1,6 +1,5 @@
 const express = require('express')
 const session = require('express-session')
-const logger = require('morgan')
 const app = express()
 const routes = require('./routes')
 const bodyParser = require('body-parser')
@@ -9,7 +8,6 @@ const passport = require('passport')
 
 var SQLiteStore = require('connect-sqlite3')(session);
 
-auth.Authenticate()
 app.use(bodyParser.json({ extended: true }));
 
 app.use(session({
@@ -21,6 +19,8 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
+auth.Authenticate()
+
 app.use('/',routes)
 
 app.listen(3000)
