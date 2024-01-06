@@ -20,5 +20,15 @@ router.post('/auth',(req,res,next)=>{
 
         return res.status(200).json({message:"Welcome"})
     })(req,res,next)
+
+})
+
+router.post('/submitarticle',(req,res,next)=>{
+    if(req.isAuthenticated()){
+        res.send('is logged in')
+    }
+    else{
+        res.send('is not logged in')
+    }
 })
 module.exports = router
