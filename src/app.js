@@ -28,10 +28,9 @@ app.use(express.json())
 app.set('trust proxy',1)
 
 app.use(cors({
-    origin:'https://cp.christopherkufis.com',
+    origin:'https://christopherkufis.com',
     credentials:true,
-    allowedHeaders:['Content-Type','Authorization'],
-
+    allowedHeaders:['Content-Type','Authorization','credentials'],
 }))
 app.options('/submitarticle')
 app.use(session({
