@@ -1,5 +1,5 @@
 var passport = require('passport');
-var LocalStrategy = require('passport-local');
+var LocalStrategy = require('passport-local').Strategy;
 var crypto = require('crypto');
 var connection = require('./Models/db');
 
@@ -21,7 +21,6 @@ async function Authenticate(){
 
       passport.serializeUser(function(user, cb) {
         process.nextTick(function() {
-          console.log(user.id)
           cb(null, { id: user.id, username: user.username });
         });
       });
