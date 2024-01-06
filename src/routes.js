@@ -27,7 +27,7 @@ router.post('/auth',(req,res,next)=>{
 router.post('/logout',(req,res,next)=>{
     req.logout(function(err){
         if(err){return next(err)}
-        res.redirect('https://cp.christopherkufis.com')
+        res.status(200).json({message:"You are now logged out"})
     })
 })
 
