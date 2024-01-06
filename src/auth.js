@@ -17,7 +17,7 @@ async function Authenticate(){
           });
         });
       }));
-
+      
       passport.serializeUser(function(user, cb) {
         process.nextTick(function() {
           cb(null, { id: user.id, username: user.username });

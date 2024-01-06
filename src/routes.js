@@ -17,14 +17,14 @@ router.post('/auth',(req,res,next)=>{
         if(!user){
             return res.status(401).json({Message:"Authentication has failed"})
         }
-
+        console.log(req.session.id)
         return res.status(200).json({message:"Welcome"})
     })(req,res,next)
 
 })
 
 router.post('/submitarticle',(req,res,next)=>{
-    console.log(req.cookies)
+
     if(req.isAuthenticated()){
         res.status(200).json('is logged in')
     }
