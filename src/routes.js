@@ -19,6 +19,7 @@ router.post('/auth',(req,res,next)=>{
         }
         req.login(user,(err)=>{
             if(err){return next(err)}
+            console.log(req.isAuthenticated())
             return(res.status(200).json({message:"Welcome"}))
         })
         console.log(req.user)
