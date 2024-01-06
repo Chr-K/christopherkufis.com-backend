@@ -21,6 +21,7 @@ router.post('/auth',(req,res,next)=>{
             if(err){return next(err)}
             return(res.status(200).json({message:"Welcome"}))
         })
+        console.log(req.user)
     })(req,res,next)
 })
 
