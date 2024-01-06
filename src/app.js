@@ -53,15 +53,16 @@ app.use(passport.session())
 auth.Authenticate()
 
 passport.serializeUser(function(user,done){
-    console.log(user.id);
 
     done(null,user.id)
   })
 
-  passport.deserializeUser(function(id, cb){
+  passport.deserializeUser(function(id, done){
+    console.log(user.id);
+
     connection.query('SELECT * FROM users WHERE id = ?', [ id ], function(err, user) {
     if (err) { return cb(err); }
-    return cb(null, user);
+    return done(null, user);
     });
   });
 
