@@ -51,4 +51,13 @@ router.post('/submitarticle',(req,res,next)=>{
         res.status(401).json('is not logged in')
     }
 })
+router.delete('/delete-article',(req,res,next)=>{
+    if(req.isAuthenticated()){
+        articleController.deleteArticle(req,res)
+        res.status(200).json('delete success')
+    }
+    else{
+        res.status(401).json('unauthorized attempt')
+    }
+})
 module.exports = router

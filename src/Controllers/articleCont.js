@@ -28,9 +28,19 @@ async function createArticle(req,res){
         console.error(err)
     }
 }
+async function deleteArticle(req,res){
+    try{
+        const article = await articleModel.deleteArticle(req.body.id)
+        res.send(article)
+    }
+    catch(err){
+        console.error(err)
+    }
+}
 
 module.exports = {
     getArticles,
     getArticle,
-    createArticle
+    createArticle,
+    deleteArticle
 }

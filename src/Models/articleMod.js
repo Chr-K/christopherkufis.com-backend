@@ -72,11 +72,35 @@ async function getArticles(){
             })
         })
     }
+    async function deleteArticle(id){
+        return new Promise((resolve,reject)=>{
+            connection.getConnection((err,connection)=>{
+                if(err){
+                    console.error(err)
+                    reject(err)
+                }
+                else{
+                    connection.query('DELETE FROM BLOG WHERE ID = ?',[id],(err,rows,fields)=>{
+                        connection.release()
+                        if(err){
+                            console.error(err.stack)
+                            reject(err)
+                        }
+                        else{
+                            resolve(rows)
+                        }
+                    })
+
+                }
+            })
+        })
+    }
 
 
 
     module.exports = {
         getArticles,
         getArticle,
-        createArticle
+        createArticle,
+        deleteArticle
     }
