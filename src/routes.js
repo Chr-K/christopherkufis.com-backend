@@ -53,9 +53,9 @@ router.post('/submitarticle',(req,res,next)=>{
 })
 
 router.post('/imageupload',(req,res,next)=>{
-    console.log(req.file)
-    res.status(200).json("Hi bud")
-
+    if(req.isAuthenticated()){
+        fileController.uploadImage(req,res)
+    }
 })
 
 
