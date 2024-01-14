@@ -13,7 +13,9 @@ async function generateFileNames(req,res){
         }
         console.log(files)
     })
-    res.status(200).json(files)
+    res.status(200).json("Boop")
+    console.log(files)
+
 }
 
 module.exports = {
