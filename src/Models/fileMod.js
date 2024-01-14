@@ -13,7 +13,7 @@ async function generateFileNames(req,res){
         }
         console.log(files)
     })
-    res.send(files).status(200)
+    res.status(200).json(files)
 }
 
 module.exports = {
