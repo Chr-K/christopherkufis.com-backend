@@ -2,7 +2,7 @@ const express = require('express')
 const passport = require('passport')
 const router = express.Router()
 const articleController = require('./Controllers/articleCont')
-
+const fileController = require('./Controllers/fileCont')
 router.get('/articles', articleController.getArticles)
 
 router.post('/article',(req,res,next)=>{
@@ -51,6 +51,15 @@ router.post('/submitarticle',(req,res,next)=>{
         res.status(401).json('is not logged in')
     }
 })
+
+router.post('/imageupload',(req,res,next)=>{
+    if(req.isAuthenticated()){
+        fileController.generateFileNames(req,res)
+    }
+})
+
+
+
 router.delete('/delete-article',(req,res,next)=>{
     if(req.isAuthenticated()){
         articleController.deleteArticle(req,res)
@@ -60,4 +69,5 @@ router.delete('/delete-article',(req,res,next)=>{
         res.status(401).json('unauthorized attempt')
     }
 })
+
 module.exports = router
