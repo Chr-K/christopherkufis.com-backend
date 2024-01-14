@@ -53,9 +53,8 @@ router.post('/submitarticle',(req,res,next)=>{
 })
 
 router.post('/imageupload',(req,res,next)=>{
-    if(req.isAuthenticated()){
         fileController.generateFileNames(req,res)
-    }
+    
 })
 
 
