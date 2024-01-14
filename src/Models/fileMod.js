@@ -12,7 +12,7 @@ async function generateFileNames(req,res){
             res.status(400);
         }
         console.log(files)
-        res.status(200).json(JSON.stringify(files))
+        res.status(200).json(files)
     })
 
 }
