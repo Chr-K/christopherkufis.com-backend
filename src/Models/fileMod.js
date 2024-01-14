@@ -6,15 +6,14 @@ const path = process.env.ARTICLE_IMAGE_PATH
 
 
 async function generateFileNames(req,res){
-    const files = fs.readdir(path,(err,files)=>{
+        fs.readdir(path,(err,files)=>{
         if(err){
             console.error('Bad Directory',err)
             res.status(400);
         }
-        return files
+        console.log(files)
+        res.status(200).json(JSON.stringify(files))
     })
-    res.status(200).json(JSON.stringify(files))
-    console.log(files)
 
 }
 
