@@ -1,5 +1,6 @@
 const express = require('express')
 const session = require('express-session')
+const multer = require('multer')
 const app = express()
 const routes = require('./routes')
 const auth = require('./auth')
@@ -54,7 +55,7 @@ passport.serializeUser(function(user,done){
 
   app.use(passport.session())
 
-
+  app.use(multer)
 
 app.use('/',routes)
 app.listen(3000)

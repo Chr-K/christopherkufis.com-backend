@@ -53,7 +53,7 @@ router.post('/submitarticle',(req,res,next)=>{
 })
 
 router.post('/imageupload',(req,res,next)=>{
-    console.log(req.file.mimetype)
+    console.log(req.file)
     res.status(200).json("Hi bud")
 
 })
