@@ -24,7 +24,7 @@ const sessionStore = new MySQLStore({
 
 app.use(express.json())
 
-app.use(multer)
+app.use(multer())
 app.set('trust proxy',1)
 
 app.use(cors({
