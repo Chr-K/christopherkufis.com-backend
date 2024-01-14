@@ -7,7 +7,7 @@ const passport = require('passport')
 const MySQLStore = require('express-mysql-session')(session);
 const connection = require('./Models/db').connection;
 const cors = require('cors')
-
+const multer = require('multer')
 
 const sessionStore = new MySQLStore({
     expiration:3600000,
@@ -24,7 +24,7 @@ const sessionStore = new MySQLStore({
 
 app.use(express.json())
 
-
+app.use(multer)
 app.set('trust proxy',1)
 
 app.use(cors({
