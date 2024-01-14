@@ -6,8 +6,8 @@ const path = process.env.ARTICLE_IMAGE_PATH
 
 
 async function uploadImage(req,res){
-
-    res.status(200).json(req.file.mimetype)
+    let type = req.file.mimetype
+    res.status(200).json(type)
 }
 
 module.exports = {
