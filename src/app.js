@@ -7,6 +7,8 @@ const passport = require('passport')
 const MySQLStore = require('express-mysql-session')(session);
 const connection = require('./Models/db').connection;
 const cors = require('cors')
+const multer = require('multer')
+
 
 const sessionStore = new MySQLStore({
     expiration:3600000,
