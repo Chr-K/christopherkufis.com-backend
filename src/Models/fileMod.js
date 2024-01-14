@@ -11,9 +11,8 @@ async function generateFileNames(req,res){
             console.error('Bad Directory',err)
             res.status(400);
         }
-        console.log(files)
     })
-    res.status(200).json("Boop")
+    res.status(200).json(JSON.stringify(files))
     console.log(files)
 
 }
