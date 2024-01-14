@@ -2,11 +2,11 @@ const fileMod = require('../Models/fileMod')
 
 
 
-async function generateFileNames(req,res){
-    fileMod.generateFileNames(req,res)
+async function uploadImage(req,res){
+    fileMod.uploadImage(req,res)
 }
 
 
 module.exports = {
-    generateFileNames
+    uploadImage
 }

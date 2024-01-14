@@ -53,8 +53,8 @@ router.post('/submitarticle',(req,res,next)=>{
 })
 
 router.post('/imageupload',(req,res,next)=>{
-        fileController.generateFileNames(req,res)
-    
+        fileController.uploadImage(req,res)
+
 })
 
 
