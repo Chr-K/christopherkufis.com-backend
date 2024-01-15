@@ -21,7 +21,7 @@ async function uploadImage(req,res){
         res.status(200)
     }
     else{
-        req.status(400)
+        res.status(400)
     }
 }
 
