@@ -57,7 +57,7 @@ router.post('/submitarticle',(req,res,next)=>{
     }
 })
 
-router.post('/imageupload',upload.single('file'),(req,res,next)=>{
+router.post('/imageupload',upload.single('image'),(req,res,next)=>{
     if(req.isAuthenticated()){
         fileController.uploadImage(req,res)
     }
