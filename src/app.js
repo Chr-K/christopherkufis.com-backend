@@ -7,6 +7,10 @@ const passport = require('passport')
 const MySQLStore = require('express-mysql-session')(session);
 const connection = require('./Models/db').connection;
 const cors = require('cors')
+const path = require('path')
+require('dotenv').config({path:'../.env'})
+const imagePath = process.env.ARTICLE_IMAGE_PATH
+
 
 const sessionStore = new MySQLStore({
     expiration:3600000,
@@ -20,6 +24,8 @@ const sessionStore = new MySQLStore({
         }
     }
 },connection)
+
+app.use('/images',express.static(path.join(__dirname,imagePath)))
 
 app.use(express.json())
 
