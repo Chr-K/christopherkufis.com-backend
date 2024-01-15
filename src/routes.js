@@ -38,6 +38,7 @@ router.post('/logout',(req,res,next)=>{
 
 router.post('/loggedin',(req,res,next)=>{
     if(req.isAuthenticated()){
+        res.status(200).json('is logged in')
     }
     else{
         res.status(401).json('is not logged in')
