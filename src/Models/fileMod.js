@@ -1,4 +1,5 @@
 const multer = require('multer')
+const mime = require('mime')
 require('dotenv').config({path:'../.env'})
 
 const imagePath = process.env.ARTICLE_IMAGE_PATH
@@ -8,7 +9,7 @@ const storage = multer.diskStorage({
         cb(null,imagePath)
     },
     filename:(req,file,cb)=>{
-        console.log(file.mimetype)
+        console.log(mime.extension(file.mimetype))
         const name = Date.now().toString() + file.mimetype
         cb(null,name)
     }
