@@ -19,10 +19,8 @@ async function fileHandler(){
 }
 
 async function uploadImage(req,res){
-
-
-
-
+    console.log(req.filename)
+    res.send(req.file.mimetype)
 }
 
 module.exports = {
