@@ -25,6 +25,7 @@ const sessionStore = new MySQLStore({
     }
 },connection)
 
+app.use('/images',express.static(path.join(__dirname,imagePath)))
 
 app.use(express.json())
 
