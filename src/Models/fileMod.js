@@ -19,7 +19,7 @@ async function fileHandler(){
 }
 
 async function uploadImage(req,res){
-    console.log(req)
+    console.log(req.body)
     res.send("test")
 }
 
