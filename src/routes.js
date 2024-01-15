@@ -50,7 +50,6 @@ router.post('/loggedin',(req,res,next)=>{
 router.post('/submitarticle',(req,res,next)=>{    
     if(req.isAuthenticated()){
         articleController.createArticle(req,res)
-        res.status(200).json('is logged in')
     }
     else{
         res.status(401).json('is not logged in')
