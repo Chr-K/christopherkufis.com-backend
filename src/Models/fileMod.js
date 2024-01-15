@@ -14,9 +14,7 @@ const storage = multer.diskStorage({
 })
 const upload = multer({storage:storage})
 
-async function fileHandler(){
-    upload.single('file')
-}
+
 
 async function uploadImage(req,res){
     console.log(req.file)
@@ -25,5 +23,5 @@ async function uploadImage(req,res){
 
 module.exports = {
     uploadImage,
-    fileHandler
+    upload
 }

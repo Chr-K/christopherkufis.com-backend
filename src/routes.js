@@ -3,6 +3,11 @@ const passport = require('passport')
 const router = express.Router()
 const articleController = require('./Controllers/articleCont')
 const fileController = require('./Controllers/fileCont')
+const upload = require('./Models/fileMod').upload
+
+
+
+
 router.get('/articles', articleController.getArticles)
 
 router.post('/article',(req,res,next)=>{
@@ -52,7 +57,7 @@ router.post('/submitarticle',(req,res,next)=>{
     }
 })
 
-router.post('/imageupload',(req,res,next)=>{
+router.post('/imageupload',upload.single('file'),(req,res,next)=>{
     if(req.isAuthenticated()){
         fileController.uploadImage(req,res)
     }
