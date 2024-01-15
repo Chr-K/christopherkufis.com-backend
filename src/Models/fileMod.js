@@ -8,7 +8,9 @@ const storage = multer.diskStorage({
         cb(null,imagePath)
     },
     filename:(req,file,cb)=>{
-        cb(null,Date.now().toString())
+        console.log(file.mimetype)
+        const name = Date.now().toString() + file.mimetype
+        cb(null,name)
     }
 })
 const upload = multer({storage:storage})
