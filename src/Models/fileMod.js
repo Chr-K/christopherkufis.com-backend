@@ -18,10 +18,10 @@ const upload = multer({storage:storage})
 
 async function uploadImage(req,res){
     if(req.file.mimetype.startsWith('image/')){
-        res.status(200)
+        res.status(200).json('test')
     }
     else{
-        res.status(400)
+        res.status(400).json('test2')
     }
 }
 
