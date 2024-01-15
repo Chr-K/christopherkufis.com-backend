@@ -1,5 +1,4 @@
 const multer = require('multer')
-
 require('dotenv').config({path:'../.env'})
 
 const imagePath = process.env.ARTICLE_IMAGE_PATH
