@@ -17,7 +17,7 @@ const upload = multer({storage:storage})
 
 
 async function uploadImage(req,res){
-    console.log(req.file.filename)
+    console.log(req.file.mimetype)
     res.send("test")
 }
 
